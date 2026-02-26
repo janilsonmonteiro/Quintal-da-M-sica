@@ -1,0 +1,264 @@
+/* Reset e base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: Arial, sans-serif;
+    background:#f9f5f0;
+    color:#333;
+    line-height:1.6;
+}
+
+/* Cores elegantes */
+:root {
+    --primary: #c8102e;      /* vermelho cabo-verdiano */
+    --accent: #f4c430;       /* amarelo dourado */
+    --dark: #2c1a0d;
+    --light: #fffaf0;
+}
+
+/* Header fixo com pontos */
+.header-fixed {
+    position: fixed;
+    top:0; left:0; right:0;
+    background: rgba(44,26,13,0.92);
+    color:white;
+    padding:0.8rem 0;
+    z-index:1000;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+}
+
+.header-fixed .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 1.5rem;
+    flex-wrap:wrap;
+}
+
+.header-fixed h1 { font-size:1.6rem; }
+
+.user-points {
+    display:flex;
+    align-items:center;
+    gap:0.8rem;
+    font-size:1.1rem;
+}
+
+#points-icon { font-size:1.4rem; animation: pulse 2s infinite; }
+
+#user-email-header {
+    padding:0.5rem;
+    border:none;
+    border-radius:4px;
+    width:180px;
+}
+
+#refresh-points {
+    background:var(--accent);
+    color:var(--dark);
+    border:none;
+    padding:0.5rem 1rem;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.translate-widget { font-size:0.9rem; }
+
+/* Hero */
+.hero {
+    height:90vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/df/25/7a/a-nossa-sala.jpg?w=1200') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content { animation: fadeInUp 1.2s ease; }
+
+.hero h1 { font-size:4.5rem; margin-bottom:1rem; text-shadow:3px 3px 10px black; }
+
+.btn-pulse {
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:1rem 2.5rem;
+    font-size:1.3rem;
+    border-radius:50px;
+    cursor:pointer;
+    transition:all 0.3s;
+    box-shadow:0 6px 20px rgba(200,16,46,0.5);
+    animation: pulse 2s infinite;
+}
+
+.btn-pulse:hover { transform:scale(1.08); background:#a00d26; }
+
+/* Seções */
+.section {
+    padding:6rem 1.5rem;
+}
+
+.container { max-width:1200px; margin:0 auto; }
+
+h2 { text-align:center; font-size:3rem; margin-bottom:2.5rem; color:var(--primary); }
+
+/* Animações gerais */
+.fade-in { opacity:0; transform:translateY(40px); transition:opacity 1s, transform 1s; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+.animate-on-scroll { opacity:0; transform:translateY(60px); transition:all 0.9s ease-out; }
+.animate-on-scroll.visible { opacity:1; transform:translateY(0); }
+
+@keyframes fadeInUp { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+@keyframes pulse { 0%,100% {transform:scale(1);} 50% {transform:scale(1.08);} }
+
+/* Menu */
+.menu-items {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:2rem;
+}
+
+.menu-item {
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+    transition:transform 0.4s, box-shadow 0.4s;
+}
+
+.menu-item:hover { transform:translateY(-12px); box-shadow:0 15px 40px rgba(0,0,0,0.2); }
+
+.menu-item img { width:100%; height:220px; object-fit:cover; }
+
+.menu-item h3 { padding:1rem; font-size:1.5rem; color:var(--dark); }
+
+.menu-item p { padding:0 1rem 1rem; }
+
+.price { font-weight:bold; color:var(--accent); display:block; padding:0 1rem 1.2rem; font-size:1.3rem; }
+
+/* Galeria */
+.gallery-items {
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    justify-content:center;
+}
+
+.gallery-items img {
+    width:320px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    transition:transform 0.5s;
+}
+
+.gallery-items img:hover { transform:scale(1.08); }
+
+/* Formulário */
+#reserve-form {
+    max-width:600px;
+    margin:0 auto;
+    display:grid;
+    gap:1.2rem;
+}
+
+#reserve-form input, #reserve-form button {
+    padding:1rem;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:1.1rem;
+}
+
+#reserve-form button { background:var(--primary); color:white; border:none; cursor:pointer; }
+
+/* Responsivo */
+@media (max-width:768px) {
+    .hero h1 { font-size:3rem; }
+    .user-points { flex-wrap:wrap; justify-content:center; }
+    #quintal{
+        display: none;
+    }
+    .header-fixed .container *{
+        font-size: 13px;
+    }
+    div#google_translate_element{
+        display: inline-block;
+        width: 40px;
+        position: absolute;
+        top: 9vh;
+        left: 52vw;
+    }
+
+    div.header-fixed .container {
+        flex-direction: none;
+    }
+
+}
+#reserve-btn{
+    margin-top: 10px;
+}
+
+div#google_translate_element div{
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.category-item {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.6rem 0.3rem;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;          /* importante para o translateY funcionar bem */
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: solid 4px rgba(217, 217, 217, 0.156);
+    border-radius: 5px;
+}
+
+.category-item:hover,
+.category-item:focus {
+    color: #f44430;
+    text-shadow: 0 4px 12px rgba(244, 61, 48, 0.5);
+}
+
+/* Underline animado (já tinha, mas reforçando) */
+.category-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -2px;
+    left: 50%;
+    background: #f43030;
+    transition: width 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.category-item:hover::after {
+    width: 80%;
+}
+.categories-container{
+    text-align: center;
+}
+
+#pontos{
+    padding: 4px;
+    border-radius: 5px;
+}
+
+textarea{
+    padding: 5px;
+}
+#date{
+    background-color: white;
+    width: 100%;
+}
+/*google_translate_element*/
